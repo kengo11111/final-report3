@@ -1,18 +1,9 @@
-# 数値計算・データ操作
-numpy==1.26.4
-pandas==2.2.1
-openpyxl==3.1.2
-statsmodels==0.14.1
-
-# 可視化
-plotly==5.20.0
+kaleido==0.2.1
 matplotlib==3.8.3
 matplotlib-inline==0.1.6
-kaleido==0.2.1
-
-# Streamlit 関連
+numpy==1.26.4
+openpyxl==3.1.2
+pandas==2.2.1
+plotly==5.20.0
 streamlit==1.32.2
-rich==14.3.2
-markdown-it-py==4.0.0
-mdurl==0.1.2
-pygments==2.19.2
+statsmodels==0.14.1
