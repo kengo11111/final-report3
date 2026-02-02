@@ -1,14 +1,9 @@
-# データ操作・計算
-numpy==1.26.4
-pandas==2.2.1
-openpyxl==3.1.2
-statsmodels==0.15.0  # Python 3.13 でのインストール安定版
-
-# 可視化
-plotly==5.20.0
-matplotlib==3.9.2  # Python 3.13 対応の安定版
+kaleido==0.2.1
+matplotlib==3.8.3
 matplotlib-inline==0.1.6
-kaleido==0.2.1  # Plotly エクスポート用
-
-# アプリ本体
+numpy==1.26.4
+openpyxl==3.1.2
+pandas==2.2.1
+plotly==5.20.0
 streamlit==1.32.2
+statsmodels==0.14.1
