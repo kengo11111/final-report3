@@ -56,3 +56,25 @@ df_long[['item', 'age', 'sex']] = (
 
 # 年度によって存在しない分類があるため、平均時間が欠損している行を除外する
 df_long = df_long.dropna(subset=['minutes'])   #minutes 列だけを見る
+
+# 抽出条件の指定
+with st.sidebar:
+    st.subheader('抽出条件')
+
+    age = st.multiselect(
+        '年齢層を選択してください（複数可）',
+        df_long['age'].unique(),
+        default=df_long['age'].unique()   # 初期表示時にすべての年齢層を選択状態にするための設定
+    )
+
+    st.subheader('色分け')
+
+    color = st.selectbox(
+        '分類を選択してください',
+        ['性別', '年齢層']
+    )
+
+    if color == '性別':
+        color = 'sex'
+    else:
+        color = 'age'
