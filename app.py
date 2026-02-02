@@ -40,3 +40,19 @@ df_long = df.melt(
 # 列名（例: M100220_1次活動の平均時間（25～34歳）（女））から、
 # 「項目名」「年齢層」「性別」を抽出するための正規表現パターン
 pattern = r'_(.*?)（(.*?)）（(.*?)）'
+
+# 列名を1つずつ解析し、項目名・年齢層・性別を取り出す関数を定義する
+def parse(col):
+    m = re.search(pattern, col)
+    if m:   #None → False,　何か入ってるオブジェクト → True
+        return m.group(1), m.group(2), m.group(3)
+    return None, None, None
+
+# 列名（raw_col）を解析し、項目名・年齢層・性別をそれぞれ新しい列として追加する
+df_long[['item', 'age', 'sex']] = (
+    df_long['raw_col']
+    .apply(lambda x: pd.Series(parse(x)))  #タプルを Series（1行分の小さな表）に変換
+)
+
+# 年度によって存在しない分類があるため、平均時間が欠損している行を除外する
+df_long = df_long.dropna(subset=['minutes'])   #minutes 列だけを見る
