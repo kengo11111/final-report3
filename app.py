@@ -78,3 +78,38 @@ with st.sidebar:
         color = 'sex'
     else:
         color = 'age'
+
+
+# 「地域」と「年齢層」に一致する行だけを抽出
+df_plot = df_long[
+    (df_long['age'].isin(age))
+]
+
+# 「年度」という文字列を除去し、調査年を数値型に変換する
+df_plot['year'] = df_plot['調査年'].str.replace('年度', '').astype(int)
+
+# 散布図の作成
+fig = px.scatter(
+    df_plot,
+    x='year',
+    y='minutes',
+    color=color,
+    labels={
+        'year': '調査年',
+        'minutes': '平均時間（分）'
+    },
+    trendline='ols',
+    title='年次別平均活動時間の推移'
+)
+
+fig2 = px.box(
+    df_plot,
+    x=color,
+    y='minutes',
+    labels={
+        'minutes': '平均時間（分）'
+    },
+    title='分類別平均活動時間の分布'
+)
+
+tab_info, tab1, tab2 = st.tabs(['アプリの概要', '年次推移', '分布の比較'])
