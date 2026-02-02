@@ -1,9 +1,14 @@
-kaleido==0.2.1
+# データ操作・計算
+numpy==1.25.3          # Python 3.12 で安定版
+pandas==2.2.1
+openpyxl==3.1.2
+statsmodels==0.14.1    # Python 3.12 対応安定版
+
+# 可視化
+plotly==5.20.0
 matplotlib==3.8.3
 matplotlib-inline==0.1.6
-numpy==1.25.4      # Python 3.12 安定版
-openpyxl==3.1.2
-pandas==2.2.1
-plotly==5.20.0
+kaleido==0.2.1          # Plotly のエクスポート用
+
+# アプリ本体
 streamlit==1.32.2
-statsmodels==0.14.1
