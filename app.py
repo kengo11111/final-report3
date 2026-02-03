@@ -98,7 +98,6 @@ fig = px.scatter(
         'year': '調査年',
         'minutes': '平均時間（分）'
     },
-    trendline='ols',
     title='年次別平均活動時間の推移'
 )
 
